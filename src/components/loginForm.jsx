@@ -30,13 +30,13 @@ class LoginForm extends Component {
             onChange={this.handleChange}
             name="username"
             label="Username"
-            value="account.username"
+            value={account.username}
           />
           <Input
             onChange={this.handleChange}
             name="password"
             label="Password"
-            value="account.password"
+            value={account.password}
           />
           <button className="btn btn-primary">Login</button>
         </form>
