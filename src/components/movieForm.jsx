@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import { getMovie, saveMovie } from "../services/fakeMovieService";
@@ -21,7 +21,10 @@ class MovieForm extends Form {
     title: Joi.string()
       .required()
       .label("Title"),
-    genreId: Joi.number()
+    genreId: Joi.string()
+      .required()
+      .label("Genre"),
+    numberInStock: Joi.number()
       .required()
       .min(0)
       .max(100)
@@ -46,7 +49,7 @@ class MovieForm extends Form {
     this.setState({ data: this.mapToViewModel(movie) });
   }
 
-  mapToviewModel(movie) {
+  mapToViewModel(movie) {
     return {
       _id: movie._id,
       title: movie.title,
